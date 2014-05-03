@@ -156,7 +156,7 @@ GameManager.prototype.move = function (direction) {
         if (next && next.value === tile.value && !next.mergedFrom) {
 	    var random = Math.random();
 	    var merged = null;
-	    if (random > 0.5 || tile.value == 1024) {
+	    if (random > 0.5 || tile.value >= 1024) {
 		merged = new Tile(positions.next, tile.value * 2);
 		merged.mergedFrom = [tile, next];
 
