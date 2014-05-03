@@ -165,7 +165,7 @@ GameManager.prototype.move = function (direction) {
 		
 		// The mighty 2048 tile
 		if (merged.value === 2048) self.won = true;
-		self.grid.insertTile(merged)
+		self.grid.insertTile(merged);
 	    } else if (random > 0.1) {
 		merged = new Tile(positions.next, tile.value * 4);
 		merged.mergedFrom = [tile, next];
@@ -175,7 +175,7 @@ GameManager.prototype.move = function (direction) {
 		
 		// The mighty 2048 tile
 		if (merged.value === 2048) self.won = true;
-		self.grid.insertTile(merged)
+		self.grid.insertTile(merged);
 	    }          
        
           self.grid.removeTile(tile);
