@@ -158,26 +158,20 @@ GameManager.prototype.move = function (direction) {
 	    var merged = null;
 	    if (random > 0.7 || tile.value >= 1024) {
 		merged = new Tile(positions.next, tile.value * 2);
-		merged.mergedFrom = [tile, next];
 
-		// Update the score
-		self.score += merged.value;
-		
-		// The mighty 2048 tile
-		if (merged.value === 2048) self.won = true;
-		self.grid.insertTile(merged);
 	    } else if (random > 0.1) {
 		merged = new Tile(positions.next, tile.value * 4);
-		merged.mergedFrom = [tile, next];
-
-		// Update the score
-		self.score += merged.value;
+	    } else {
+		merged = new Tile(positions.next, tile.value * 4);
+	    }
+	    merged.mergedFrom = [tile, next];
+	    
+	    // Update the score
+	    self.score += merged.value;
 		
-		// The mighty 2048 tile
-		if (merged.value === 2048) self.won = true;
-		self.grid.insertTile(merged);
-	    }          
-       
+	    // The mighty 2048 tile
+	    if (merged.value === 2048) self.won = true;
+	    self.grid.insertTile(merged);       
           self.grid.removeTile(tile);
 
           // Converge the two tiles' positions
