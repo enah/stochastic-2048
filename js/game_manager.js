@@ -162,7 +162,7 @@ GameManager.prototype.move = function (direction) {
 	    } else if (random > 0.1) {
 		merged = new Tile(positions.next, tile.value * 4);
 	    } else {
-		merged = new Tile(positions.next, tile.value * 4);
+		merged = new Tile(positions.next, tile.value);
 	    }
 	    merged.mergedFrom = [tile, next];
 	    
